@@ -1,0 +1,30 @@
+[project]
+name = "test_bumpver"
+version = "0.0.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+authors = []
+classifiers = []
+dependencies = []
+
+[tool.bumpver]
+current_version = "0.0.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+tag_message = "{new_version}"
+tag_scope = "default"
+commit = true
+tag = true
+push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+    'version = "{version}"',
+]
+"test.txt" = ["{version}"]
+"./src/test.txt" = ["{version}"]
+"src\no_capitalization\test.txt" = ["{version}"]
+"src\CaPiTaLiZaTiOn\test.txt" = ["{version}"]
